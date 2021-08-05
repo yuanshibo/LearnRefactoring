@@ -28,28 +28,9 @@ public class Consumer {
             double thisAmonut = 0;
             Rental each = (Rental)rentals.nextElement();
 
-            switch(each.getMovie().getPriceCode()){
-                case Movie.REGULAR:
-                    thisAmonut += 2;
-                    if(each.getDaysRented() > 2){
-                        thisAmonut += (each.getDaysRented() -2 ) * 1.5;
-                    }
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmonut +=each.getDaysRented() * 3;
-                    break;
-                case Movie.CHILDRENS:
-                    thisAmonut += 1.5;
-                    if(each.getDaysRented() > 3){
-                        thisAmonut += (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            thisAmonut = each.getCharge();
 
-            frequentRenterPoints ++;
-            if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1){
-                frequentRenterPoints ++;
-            }
+            frequentRenterPoints += each.getFrequentRenterPoints();
 
             result += String.format("\t%s\t%s\n", each.getMovie().getTitle(),String.valueOf(thisAmonut));
             totalAmount += thisAmonut;
@@ -61,7 +42,5 @@ public class Consumer {
 
         return result;
     }
-
-    
     
 }
