@@ -57,7 +57,7 @@ public class Consumer {
         }
 
         result += String.format("Amonut owed is %s\n", String.valueOf(totalAmount));
-        result += String.format("You earned %d frequent renter points", frequentRenterPoints);
+        result += String.format("You earned %d frequent renter points\n", frequentRenterPoints);
 
         return result;
     }
