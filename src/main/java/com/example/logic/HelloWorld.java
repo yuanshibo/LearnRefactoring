@@ -1,8 +1,8 @@
-package com.example;
+package com.example.logic;
 
+import com.example.bean.Consumer;
 import com.example.bean.Movie;
 import com.example.bean.Rental;
-import com.example.logic.Consumer;
 
 public class HelloWorld {
 

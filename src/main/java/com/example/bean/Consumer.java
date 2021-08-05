@@ -1,10 +1,7 @@
-package com.example.logic;
+package com.example.bean;
 
 import java.util.Enumeration;
 import java.util.Vector;
-
-import com.example.bean.Movie;
-import com.example.bean.Rental;
 
 public class Consumer {
     private String _name;
@@ -14,7 +11,7 @@ public class Consumer {
     public String getName() {
         return _name;
     }
-    private Vector _retals =new Vector();
+    private Vector<Rental>_retals =new Vector<Rental>();
 
     public void addRental(Rental arg){
         _retals.addElement(arg);
@@ -23,7 +20,7 @@ public class Consumer {
     public String statement(){
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration rentals = _retals.elements();
+        Enumeration<Rental> rentals = _retals.elements();
 
         String result = String.format("Rental Record for %s\n",getName());
 
